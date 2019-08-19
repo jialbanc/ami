@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Tests;
+namespace Jialbanc\Ami\Tests;
 
 use Clue\React\Ami\Protocol\Event;
 

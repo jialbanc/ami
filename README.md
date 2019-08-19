@@ -1,8 +1,10 @@
 [![Build Status](https://travis-ci.org/enniel/ami.svg?branch=master)](https://travis-ci.org/enniel/ami)
 [![StyleCI](https://styleci.io/repos/62553643/shield?branch=master)](https://styleci.io/repos/62553643)
-# Enniel\Ami
+# Jialbanc\Ami
 
 Easy control via [asterisk](http://www.asterisk.org/) manager interface (AMI).
+
+This is an update from original project [enniel/ami](https://github.com/enniel/ami/)
 
 Installation and configuration
 ----------------
@@ -10,15 +12,7 @@ Installation and configuration
 To install as a [composer](https://getcomposer.org/) package to be used with Laravel 5, simply run:
 
 ```sh
-composer require "enniel/ami"
-```
-
-Once it's installed, you can register the service provider in `config/app.php` in the `providers` array:
-
-```php
-'providers' => [
-  \Enniel\Ami\Providers\AmiServiceProvider::class,
-]
+composer require "jialbanc/ami"
 ```
 
 Then publish assets with `php artisan vendor:publish`. This will add the file `config/ami.php`.
@@ -123,10 +117,4 @@ Artisan::call('ami:cli', [
     'command'     => [command],
     '--autoclose' => true,
 ]);
-```
-
-**Without Laravel**
-
-```sh
-php ./vendor/bin/ami ami:listen --host=127.0.0.1 --port=5038 --username=username --secret=secret --monitor
 ```

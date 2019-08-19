@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Commands;
+namespace Jialbanc\Ami\Console;
 
 class AmiUssd extends Command
 {

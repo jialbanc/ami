@@ -1,19 +1,18 @@
 <?php
 
-namespace Enniel\Ami\Providers;
+namespace Jialbanc\Ami;
 
-use Enniel\Ami\Factory;
-use Enniel\Ami\Commands\AmiCli;
-use Enniel\Ami\Commands\AmiSms;
-use Enniel\Ami\Commands\AmiUssd;
-use React\SocketClient\Connector;
-use Enniel\Ami\Commands\AmiAction;
-use Enniel\Ami\Commands\AmiListen;
+use Clue\React\Ami\Factory;
+use Jialbanc\Ami\Console\AmiCli;
+use Jialbanc\Ami\Console\AmiSms;
+use Jialbanc\Ami\Console\AmiUssd;
+use React\Socket\Connector;
+use Jialbanc\Ami\Console\AmiAction;
+use Jialbanc\Ami\Console\AmiListen;
 use React\EventLoop\LoopInterface;
 use React\EventLoop\StreamSelectLoop;
 use Illuminate\Support\ServiceProvider;
-use React\SocketClient\ConnectorInterface;
-use React\Dns\Resolver\Factory as DnsResolver;
+use React\Socket\ConnectorInterface;
 
 class AmiServiceProvider extends ServiceProvider
 {
@@ -23,7 +22,7 @@ class AmiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            realpath(__DIR__.'/../../config/ami.php') => config_path('ami.php'),
+            realpath(__DIR__.'/config/ami.php') => config_path('ami.php'),
         ], 'ami');
     }
 
@@ -55,7 +54,7 @@ class AmiServiceProvider extends ServiceProvider
      */
     protected function registerConfig()
     {
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/ami.php'), 'ami');
+        $this->mergeConfigFrom(realpath(__DIR__.'/config/ami.php'), 'ami');
     }
 
     /**
@@ -132,7 +131,7 @@ class AmiServiceProvider extends ServiceProvider
         $this->app->singleton(ConnectorInterface::class, function ($app) {
             $loop = $app[LoopInterface::class];
 
-            return new Connector($loop, (new DnsResolver())->create('8.8.8.8', $loop));
+            return new Connector($loop, ['dns' => '1.1.1.1']);
         });
         $this->app->alias(ConnectorInterface::class, 'ami.connector');
     }

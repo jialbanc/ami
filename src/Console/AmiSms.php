@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Commands;
+namespace Jialbanc\Ami\Console;
 
 use Clue\React\Ami\Client;
 use jackkum\PHPPDU\Submit;
@@ -62,7 +62,7 @@ class AmiSms extends AmiAbstract
             ]);
         }
         $promise = \React\Promise\map($promises, function (Response $response) {
-            Event::fire('ami.dongle.sms.sended', [$this, $response]);
+            Event::dispatch('ami.dongle.sms.sended', [$this, $response]);
             $message = Arr::get($response->getFields(), 'Message', null);
             $this->line($message);
         });

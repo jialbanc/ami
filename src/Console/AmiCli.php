@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Commands;
+namespace Jialbanc\Ami\Console;
 
 use Clue\React\Ami\Client;
 use Clue\React\Ami\Protocol\Response;

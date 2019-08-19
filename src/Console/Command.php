@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Commands;
+namespace Jialbanc\Ami\Console;
 
 use Illuminate\Console\Parser;
 use Illuminate\Contracts\Support\Arrayable;

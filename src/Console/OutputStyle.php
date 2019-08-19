@@ -1,6 +1,6 @@
 <?php
 
-namespace Enniel\Ami\Commands;
+namespace Jialbanc\Ami\Console;
 
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;

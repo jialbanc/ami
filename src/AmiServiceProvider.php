@@ -4,7 +4,6 @@ namespace Jialbanc\Ami;
 
 use Clue\React\Ami\Factory;
 use Jialbanc\Ami\Console\AmiCli;
-use Jialbanc\Ami\Console\AmiSms;
 use Jialbanc\Ami\Console\AmiUssd;
 use React\Socket\Connector;
 use Jialbanc\Ami\Console\AmiAction;
@@ -90,16 +89,6 @@ class AmiServiceProvider extends ServiceProvider
         $this->app->alias(AmiAction::class, 'command.ami.action');
     }
 
-    /**
-     * Register the dongle sms.
-     */
-    protected function registerDongleSms()
-    {
-        $this->app->singleton(AmiSms::class, function ($app) {
-            return new AmiSms($app['events'], $app['ami.eventloop'], $app['ami.factory'], $app['config']['ami']);
-        });
-        $this->app->alias(AmiSms::class, 'command.ami.dongle.sms');
-    }
 
     /**
      * Register the dongle ussd.

@@ -23,7 +23,6 @@
         "illuminate/console": "^5.5",
         "illuminate/contracts": "^5.5",
         "illuminate/support": "^5.5",
-        "jackkum/phppdu": "~1.2.10",
         "clue/ami-react": "^0.4.0"
     },
     "require-dev": {

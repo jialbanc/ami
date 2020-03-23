@@ -40,7 +40,6 @@ class AmiServiceProvider extends ServiceProvider
         $this->registerAmiCli();
         $this->commands([
             'command.ami.dongle.ussd',
-            'command.ami.dongle.sms',
             'command.ami.listen',
             'command.ami.action',
             'command.ami.cli',
